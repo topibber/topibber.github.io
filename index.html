@@ -5,106 +5,59 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>TOPIB BER — Toshkentda usta toping</title>
 <style>
-:root{--bg:#f6f7f9;--card:#fff;--tx:#14181f;--mut:#667085;--ac:#0a7c66;--acx:#fff;--bd:#e3e6eb;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1318;--card:#181e26;--tx:#eef1f5;--mut:#98a2b3;--ac:#2cc3a4;--acx:#06201a;--bd:#2a323d;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0f1318;--card:#181e26;--tx:#eef1f5;--mut:#98a2b3;--ac:#2cc3a4;--acx:#06201a;--bd:#2a323d;color-scheme:dark}
+:root{--bg:#f6f7f9;--cd:#fff;--tx:#14181f;--mu:#667085;--ac:#0a7c66;--ax:#fff;--bd:#e3e6eb}
+@media(prefers-color-scheme:dark){:root{--bg:#0f1318;--cd:#181e26;--tx:#eef1f5;--mu:#98a2b3;--ac:#2cc3a4;--ax:#06201a;--bd:#2a323d}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.45}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,-apple-system,Roboto,sans-serif;line-height:1.45}
 .w{max-width:760px;margin:0 auto;padding:16px}
 h1{font-size:1.5rem;margin:8px 0 4px}
-.sub{color:var(--mut);margin:0 0 16px}
+.mu{color:var(--mu);font-size:.9rem}
+.cta{display:block;text-decoration:none;background:var(--ac);color:var(--ax);padding:14px;border-radius:14px;margin:14px 0}
+.cta b{display:block;font-size:1.05rem}
+.cta.o{background:none;color:var(--ac);border:1px solid var(--ac)}
 .f{display:grid;gap:8px;grid-template-columns:1fr 1fr}
-.f input,.f select{width:100%;padding:12px;border:1px solid var(--bd);border-radius:10px;background:var(--card);color:var(--tx);font-size:1rem}
+.f input,.f select{width:100%;padding:12px;border:1px solid var(--bd);border-radius:10px;background:var(--cd);color:var(--tx);font-size:1rem}
 .f input{grid-column:1/-1}
-.chips{display:flex;gap:8px;overflow-x:auto;padding:12px 0}
-.chip{white-space:nowrap;padding:8px 14px;border-radius:99px;border:1px solid var(--bd);background:var(--card);color:var(--tx);font-size:.9rem;cursor:pointer}
-.chip.on{background:var(--ac);color:var(--acx);border-color:var(--ac)}
-.cnt{color:var(--mut);font-size:.9rem;margin:4px 0 10px}
-.c{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;margin-bottom:10px}
-.r{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
-.n{font-weight:650}
-.m{color:var(--mut);font-size:.9rem}
-.st{color:var(--ac);font-weight:650;white-space:nowrap}
+.c{background:var(--cd);border:1px solid var(--bd);border-radius:14px;padding:14px;margin-top:10px}
 .a{display:flex;gap:8px;margin-top:10px}
 .a a{flex:1;text-align:center;padding:10px;border-radius:10px;text-decoration:none;font-weight:600;border:1px solid var(--ac);color:var(--ac)}
-.a a.p{background:var(--ac);color:var(--acx)}
-details{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:12px 14px;margin-top:18px}
-summary{font-weight:650;cursor:pointer}
-.g{display:grid;gap:8px;margin-top:10px}
-.g input,.g select{padding:12px;border:1px solid var(--bd);border-radius:10px;background:var(--bg);color:var(--tx);font-size:1rem}
-.g button{padding:12px;border:0;border-radius:10px;background:var(--ac);color:var(--acx);font-weight:650;font-size:1rem;cursor:pointer}
-.nt{color:var(--mut);font-size:.8rem;margin-top:14px;text-align:center}
-.cta{display:block;text-decoration:none;background:var(--ac);color:var(--acx);padding:14px;border-radius:14px;margin-bottom:14px}.cta b{display:block;font-size:1.05rem}.cta span{font-size:.9rem;opacity:.9}
+.a a.p{background:var(--ac);color:var(--ax)}
 </style>
 </head>
 <body>
 <div class="w">
 <h1>🛠️ TOPIB BER</h1>
-<p class="sub">Toshkent boʻyicha ishonchli ustalarni toping</p>
-<a class="cta" href="https://forms.gle/sD3YsM8R2k3Mseh56" target="_blank" rel="noopener"><b>Kerakli xizmat topilmadimi?</b><span>Soʻrov qoldiring — biz ustani topib beramiz →</span></a>
+<div class="mu">Toshkent boʻyicha ishonchli ustalarni toping</div>
+<a class="cta" id="f1" target="_blank" rel="noopener"><b>Usta kerakmi?</b>Soʻrov qoldiring — biz ustani topib beramiz →</a>
+<a class="cta o" id="f2" target="_blank" rel="noopener" style="display:none"><b>Siz ustamisiz?</b>Bizga qoʻshiling va mijozlar toping →</a>
 <div class="f">
 <input id="q" type="search" placeholder="Usta yoki xizmat qidiring…">
 <select id="d"></select>
-<select id="s"><option value="r">Reyting boʻyicha</option><option value="p">Narx: arzonroq</option></select>
+<select id="s"></select>
 </div>
-<div class="chips" id="chips"></div>
-<div class="cnt" id="cnt"></div>
 <div id="list"></div>
-
-<details>
-<summary>➕ Usta sifatida qoʻshilish</summary>
-<div class="g">
-<input id="nn" placeholder="Ism familiya">
-<select id="nc"></select>
-<select id="nd"></select>
-<input id="np" type="tel" placeholder="Telefon: +998 90 123 45 67">
-<input id="nx" type="number" placeholder="Narx (soʻm / soat)">
-<button id="add">Qoʻshish</button>
-</div>
-</details>
-<p class="nt">Namunaviy maʼlumotlar. Haqiqiy ustalar qoʻshilgach, ular shu yerda chiqadi.</p>
 </div>
 <script>
-var CATS=["Santexnik","Elektrik","Duradgor","Konditsioner","Maishiy texnika","Kafel / pol","Bo‘yoqchi","Kompyuter"];
+var FORM_SOROV="https://forms.gle/sD3YsM8R2k3Mseh56";
+var FORM_USTA="";
+/* Haqiqiy ustalar: {n:"Ism",c:"Santexnik",d:"Chilonzor",p:"+998901234567",x:60000} */
+var DATA=[];
 var DIST=["Chilonzor","Yunusobod","Mirzo Ulugʻbek","Sergeli","Yakkasaroy","Shayxontohur","Olmazor","Mirobod","Yashnobod","Uchtepa"];
-var BASE=[
-{n:"Anvar Karimov",c:"Santexnik",d:"Chilonzor",p:"+998901110001",r:4.9,x:60000,e:8},
-{n:"Bobur Yusupov",c:"Elektrik",d:"Yunusobod",p:"+998901110002",r:4.8,x:70000,e:10},
-{n:"Jasur Toshmatov",c:"Konditsioner",d:"Mirzo Ulugʻbek",p:"+998901110003",r:4.7,x:90000,e:6},
-{n:"Sardor Aliyev",c:"Duradgor",d:"Sergeli",p:"+998901110004",r:4.6,x:80000,e:12},
-{n:"Dilshod Rahimov",c:"Maishiy texnika",d:"Yakkasaroy",p:"+998901110005",r:4.9,x:65000,e:9},
-{n:"Otabek Nazarov",c:"Kafel / pol",d:"Olmazor",p:"+998901110006",r:4.5,x:100000,e:7},
-{n:"Rustam Qodirov",c:"Boʻyoqchi",d:"Mirobod",p:"+998901110007",r:4.7,x:55000,e:5},
-{n:"Timur Ergashev",c:"Kompyuter",d:"Shayxontohur",p:"+998901110008",r:4.8,x:50000,e:6},
-{n:"Eldor Saidov",c:"Santexnik",d:"Yashnobod",p:"+998901110009",r:4.4,x:50000,e:4},
-{n:"Farhod Abdullayev",c:"Elektrik",d:"Uchtepa",p:"+998901110010",r:4.6,x:60000,e:11}
-];
-var mine=[];try{mine=JSON.parse(localStorage.getItem("ustalar")||"[]")}catch(e){}
-var cat="",$=function(i){return document.getElementById(i)};
-CATS=CATS.map(function(c){return c.replace("‘","ʻ")});
-function opts(el,arr,first){el.innerHTML=(first?'<option value="">'+first+'</option>':'')+arr.map(function(a){return'<option>'+a+'</option>'}).join('')}
-opts($("d"),DIST,"Barcha tumanlar");opts($("nc"),CATS);opts($("nd"),DIST);
-function chips(){var h='<button class="chip'+(cat?'':' on')+'" data-c="">Hammasi</button>';
-CATS.forEach(function(c){h+='<button class="chip'+(cat===c?' on':'')+'" data-c="'+c+'">'+c+'</button>'});$("chips").innerHTML=h}
+var CATS=["Santexnik","Elektrik","Duradgor","Konditsioner","Maishiy texnika","Kafel / pol","Boʻyoqchi","Kompyuter"];
+var $=function(i){return document.getElementById(i)};
+$("f1").href=FORM_SOROV;
+if(FORM_USTA){$("f2").href=FORM_USTA;$("f2").style.display="block"}
+$("d").innerHTML='<option value="">Barcha tumanlar</option>'+DIST.map(function(a){return"<option>"+a+"</option>"}).join("");
+$("s").innerHTML='<option value="">Barcha xizmatlar</option>'+CATS.map(function(a){return"<option>"+a+"</option>"}).join("");
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 function render(){
 var q=$("q").value.toLowerCase(),d=$("d").value,s=$("s").value;
-var all=mine.concat(BASE).filter(function(u){return(!cat||u.c===cat)&&(!d||u.d===d)&&(!q||(u.n+u.c+u.d).toLowerCase().indexOf(q)>-1)});
-all.sort(function(a,b){return s==="p"?a.x-b.x:b.r-a.r});
-$("cnt").textContent=all.length+" ta usta topildi";
-$("list").innerHTML=all.length?all.map(function(u){
-var tel=u.p.replace(/\s/g,"");
-return'<div class="c"><div class="r"><div><div class="n">'+esc(u.n)+'</div><div class="m">'+esc(u.c)+' · '+esc(u.d)+(u.e?' · '+u.e+' yil tajriba':'')+'</div></div><div class="st">★ '+u.r.toFixed(1)+'</div></div><div class="m" style="margin-top:6px">'+Number(u.x).toLocaleString("ru-RU")+' soʻmdan / soat</div><div class="a"><a class="p" href="tel:'+esc(tel)+'">📞 Qoʻngʻiroq</a><a href="https://t.me/'+esc(tel)+'">Telegram</a></div></div>'
-}).join(""):'<p class="m">Hech narsa topilmadi. Filtrlarni oʻzgartirib koʻring.</p>'}
-$("chips").onclick=function(e){if(e.target.dataset.c!==undefined){cat=e.target.dataset.c;chips();render()}};
+var a=DATA.filter(function(u){return(!d||u.d===d)&&(!s||u.c===s)&&(!q||(u.n+u.c+u.d).toLowerCase().indexOf(q)>-1)});
+$("list").innerHTML=a.length?a.map(function(u){var t=u.p.replace(/\s/g,"");
+return'<div class="c"><b>'+esc(u.n)+'</b><div class="mu">'+esc(u.c)+" · "+esc(u.d)+"</div>"+(u.x?'<div class="mu">'+Number(u.x).toLocaleString("ru-RU")+" soʻmdan / soat</div>":"")+'<div class="a"><a class="p" href="tel:'+esc(t)+'">📞 Qoʻngʻiroq</a><a href="https://t.me/'+esc(t)+'">Telegram</a></div></div>'}).join(""):
+'<div class="c mu">'+(DATA.length?"Hech narsa topilmadi.":"Ustalar qoʻshilmoqda. Hozir yuqoridagi tugma orqali soʻrov qoldiring, biz ustani topib beramiz.")+"</div>"}
 ["q","d","s"].forEach(function(i){$(i).oninput=render});
-$("add").onclick=function(){
-var n=$("nn").value.trim(),p=$("np").value.trim(),x=+$("nx").value;
-if(!n||!p){alert("Ism va telefonni kiriting");return}
-mine.unshift({n:n,c:$("nc").value,d:$("nd").value,p:p,r:5.0,x:x||60000,e:0});
-try{localStorage.setItem("ustalar",JSON.stringify(mine))}catch(e){}
-$("nn").value=$("np").value=$("nx").value="";render();window.scrollTo(0,0)};
-chips();render();
+render();
 </script>
 </body>
-  </html>
+</html>
